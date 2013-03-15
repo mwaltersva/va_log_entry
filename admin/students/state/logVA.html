@@ -1,0 +1,1215 @@
+<tr style="padding: 0px; margin: 0px;"><td style="padding: 0px; margin: 0px;" colspan="2">
+	<td>
+		<table style="width: 100%;" cellpadding="4" cellspacing="0">
+			<tr><td colspan="2">&nbsp;</td></tr>
+			<tr class="headerRow">
+				<td colspan="2" class="bold">Virginia State Information - Version 1.3 </td>
+			</tr>
+		</table>
+		~[if.~([01]va_primary_dis_code)#]<font style="color: red">~(decode;~([01]va_primary_dis_code);15;Non-IDEA Student;IDEA Student;)</font>[/if]
+
+		<div id="show_page" style="display: none;">
+			<table style="width: 100%;" cellpadding="4" cellspacing="0">
+				<tr><td colspan="2">&nbsp;</td>
+				</tr>
+
+				<tr class="~[evenoddrow;reset]"><td title="[Log]VA_enrolled_division"><b>Enrolled Division</b></td>
+					<td><input type="text" name="[Log]VA_enrolled_division" size="4" maxlength="3" value="" id="VA_enrolled_division">
+						(<a href="state/usa_va/division_school_codes.html?field1=VA_enrolled_division&field2=VA_enrolled_school" target="_blank">Codes</a>)
+						Leave blank if your division</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_enrolled_school"><b>Enrolled School</b></td>
+					<td><input type="text" name="[Log]VA_enrolled_school" size="4" maxlength="4" value="" id="VA_enrolled_school">
+					(<a href="state/usa_va/division_school_codes.html?field1=VA_enrolled_division&field2=VA_enrolled_school" target="_blank">Codes</a>)
+					Leave blank if student's current school</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_incident_division"><b>Incident Division</b></td>
+					<td><input type="text" name="[Log]VA_incident_division" size="4" maxlength="3" value="" id="VA_inc_div">
+					(<a href="state/usa_va/division_school_codes.html?field1=VA_inc_div&field2=VA_inc_school" target="_blank">Codes</a>)
+					Leave blank if your division</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_incident_school"><b>Incident School</b></td>
+					<td><input type="text" name="[Log]VA_incident_school" size="4" maxlength="4" value="" id="VA_inc_school">
+					(<a href="state/usa_va/division_school_codes.html?field1=VA_inc_div&field2=VA_inc_school" target="_blank">Codes</a>)
+					Leave blank if student's current school</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_incident_date"><b>Incident Date (mm/dd/yyyy)</b></td>
+					<td><input type="text" name="[Log]VA_incident_date" id="incident_date" maxlength="10" size="12" value=""></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_incident_code"><b>Incident Number</b></td>
+					<td><input type="text" name="[Log]VA_incident_code" id="inc_id" maxlength="10" size="12" value="" ></input>&nbsp;<input type="button" value="Generate Id" onClick="generateIncidentId();"><div id="inc_id_err" style="visibility: hidden" class="logError"></div></td>
+				</tr>
+				<tr><td>This incident involves more than one student.</td><td><input type="checkbox" id="Log_VA_multi_offender"></input></td></tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_primary_code"><b>Primary Offense Code</b></td>
+					<td><select name="[Log]VA_primary_code" id="Log_VA_primary_code">
+						<option value="">Select...</option>
+						<option value="">
+						<option value="">-- Alcohol, Tobacco, Drugs --
+						<option value="AC1">AC1-Alcohol Use
+						<option value="AC2">AC2-Alcohol Poss.
+						<option value="AC3">AC3-Alcohol Sale/Distr.
+						<option value="D10">D10-Other Drug Use/Overdose
+						<option value="D11">D11-Other Drug Poss./Paraphernalia Poss.
+						<option value="D12">D12-Other Drug Sale/Distr.
+						<option value="D15">D15-Inhalant Possession
+						<option value="D16">D16-Inhalant Use
+						<option value="D17">D17-Drug Look-a-like Poss.
+						<option value="D19">D19-Anabolic Steroid Sale/Distr.
+						<option value="D20">D20-Anabolic Steroid Use/Poss.
+						<option value="D4G">D4G-OTC Med Use
+						<option value="D5G">D5G-OTC Med Poss.
+						<option value="D6G">D6G-OTC Med Sale/Distr.
+						<option value="DG1">DG1-Sched I&II Drug Use
+						<option value="DG2">DG2-Sched I&II Drug Poss.
+						<option value="DG3">DG3-Sched I&II Drug Sale/Distr.
+						<option value="DG5">DG5-Synth Marijuana Poss.
+						<option value="DG6">DG6-Synth Marijuana Sale/Distr.
+						<option value="DG7">DG7-Marijuana Use
+						<option value="DG8">DG8-Marijuana Poss.
+						<option value="DG9">DG9-Marijuana Sale/Distr.
+						<option value="DR3">DR3-Rx Theft/Attempted Theft
+						<option value="T4B">T4B-Poss. of tobacco pariphernalia
+						<option value="TC1">TC1-Tobacco use
+						<option value="TC2">TC2-Tobacco poss.
+						<option value="TC3">TC3-Tobacco sale/distr.
+
+						<option value="">
+						<option value="">-- Arson, Vandalism, Tresspassing --
+						<option value="AS1">AS1-Arson Actual
+						<option value="AS2">AS2-Arson Attempted
+						<option value="AS3">AS3-Arson-Set off cherry bomb, stink bomb, firecracker, etc.
+						<option value="TR1">TR1-Tresspassing
+						<option value="VN1">VN1-Vandalism of school property
+						<option value="VN2">VN2-Vandalism of private property
+						<option value="VN3">VN3-Graffiti
+
+						<option value="">				
+						<option value="">-- Assault --
+						<option value="BA1">BA1-Assault/Battery staff w/weapon.
+						<option value="BA2">BA2-Assault/Battery staff w/o weapon.
+						<option value="BA3">BA3-Assault/Battery stud w/weapon.
+						<option value="BA4">BA4-Assault/Battery stud w/o weapon.
+						<option value="BA5">BA5-Assault/Battery-Malicious Wounding (see guide!)
+						
+						<option value="">
+						<option value="">-- Attendance, Insubordination, etc --
+						<option value="A1T">A1T-Attendance
+						<option value="D1C">D1C-Disrespect
+						<option value="D2C">D2C-Defiance
+						<option value="D3C">D3C-Disruptive
+						<option value="D4C">D4C-Poss. of Obscene literature
+						<option value="D5C">D5C-Classroom Disruption
+						<option value="D6C">D6C-Obscene Language/Guesture
+						<option value="D8C">D8C-Minor Insubordination
+
+						<option value="">
+						<option value="">-- Bullying, personal threats, etc --
+						<option value="BU1">BU1-Bullying
+						<option value="BU2">BU2-Cyber Bullying
+						<option value="HR1">HR1-Harrassment (nonsexual)
+						<option value="TI1">TI1-Threat against staff
+						<option value="TI2">TI2-Threat against student
+						<option value="ST1">ST1-Stalking
+						
+						<option value="">
+						<option value="">-- Fighting, Hazing --
+						<option value="F1T">F1T-Minor Physical Altercation
+						<option value="FA2">FA2-Fighting w/No Inj or Minor Inj
+						<option value="H1Z">H1Z-Hazing
+						
+						<option value="">
+						<option value="">-- Homocide --
+						<option value="HO1">HO1-Against Staff w/firearm
+						<option value="HO2">HO2-Against Stud w/firearm
+						<option value="HO3">HO3-Against Staff w/ other weapon
+						<option value="HO4">HO4-Against Stud w/ other weapon
+
+						<option value="">
+						<option value="">--Other Offenses--
+						<option value="G1B">G1B-Gambling
+						<option value="GA1">GA1-Gang Activity
+						<option value="KI1">KI1-Kidnapping
+						<option value="S1V">S1V-Inapp. Personal Property (i.e., dress code)
+						<option value="S2V">S2V-Lying, Cheating, Plagiarism, etc.
+						<option value="S3V">S3V-Other school code violation
+						
+						<option value="">
+						<option value="">-- School Threats --
+						<option value="BO1">BO1-Bomb Threat (Real or False)
+						<option value="BO2">BO2-Chem/Bio Threat (Real or False)
+						<option value="BO3">BO3-Terror Threat (real or false)
+						<option value="BO4">BO4-False Firealarm
+						<option value="RG1">RG1-Inciting a riot
+						<option value="RG2">RG2-Attempting to incite a riot
+
+						<option value="">
+						<option value="">-- Sexual Assault, Harrassment, etc --
+						<option value="SB1">SB1-Sexual Battery against Staff
+						<option value="SB2">SB2-Sexual Battery against stud
+						<option value="SX0">SX0-Sexual Harrassment
+						<option value="SX1">SX1-Offensive Touching against Staff
+						<option value="SX2">SX2-Offensive Touching against Stud
+						<option value="SX3">SX3-Sexual Assault against Staff
+						<option value="SX4">SX4-Sexual Assault against Stud
+						<option value="SX5">SX5-Atmpt. Sex Assault against Staff
+						<option value="SX6">SX6-Atmpt. Sex Assualt against stud
+						<option value="SX7">SX7-Sexual offense, not forcible
+						<option value="SX8">SX8-Aggravated Sexual Battery
+					
+						<option value="">	
+						<option value="">-- Technology Violations --
+						<option value="C1M">C1M-Tech, Beeper Violation
+						<option value="C2M">C2M-Tech, Cell Phone Violation
+						<option value="C3M">C3M-Tech, Other device
+						<option value="T1C">T1C-Unauth. use of Technology
+						<option value="T2C">T2C-Damage to Comp hw, sw, etc.
+						<option value="T3C">T3C-Accept. Use Violation
+						<option value="T4C">T4C-WWW policy violation
+
+						<option value="">
+						<option value="">-- Theft, Extorsion, etc --
+						<option value="BK1">BK1-Burglary: Actual
+						<option value="BK2">BK2-Burglary: Attempted				
+						<option value="ET1">ET1-Extortion
+						<option value="ET2">ET2-Attempted Extortion				
+						<option value="RB1">RB1-Robbery Actual
+						<option value="RB2">RB2-Attempted Robbery
+						<option value="TF1">TF1-Theft of School Property
+						<option value="TF2">TF2-Theft of staff property
+						<option value="TF3">TF3-Theft of student property
+						<option value="TF4">TF4-Poss. of stolen property
+						<option value="TF6">TF6-Motor vehicle theft.
+
+						<option value="">
+						<option value="">-- Weapons Related --
+						<option value="W1P">W1P-Poss. of ammunition
+						<option value="W2P">W2P-Poss. of a chemical weapon.
+						<option value="W3P">W3P-Poss. of a look-a-like (toy gun)
+						<option value="W8P">W8P-Poss. of knife &lt; 3", razor, etc.
+						<option value="W9P">W9P-Poss. of fireworks, stink bomb, etc.
+						<option value="WP0">WP0-Poss. of air gun (airsoft, paintball, BB, etc.)
+						<option value="WP1">WP1-Poss. of handgun/pistol
+						<option value="WP2">WP2-Poss. of Rifle/Shotgun
+						<option value="WP4">WP4-Poss. of other projectile wep (see manual!)
+						<option value="WP5">WP5-Poss of knife &gt; 3"
+						<option value="WP6">WP6-Poss. of bomb/explosive
+						<option value="WP7">WP7-Use of bomb/explosive
+						<option value="WP8">WP8-Other firearm (See manual!)
+						<option value="WP9">WP9-Other weapon (billy club, bat, etc.)
+						<option value="WS1">WS1-Poss. of a stun gun
+						<option value="WT1">WT1-Poss. of a taser
+					</select><br /><div style="visibility:hidden; color: #FF0000; font-weight: bold" id="Log_VA_primary_code_err"></div></td>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_offense_code2"><b>Secondary Offense Code</b></td>
+					<td><select name="[Log]VA_offense_code2" id="Log_VA_offense_code2">
+						<option value="">Select...</option>
+						<option value="">
+						<option value="">-- Alcohol, Tobacco, Drugs --
+						<option value="AC1">AC1-Alcohol Use
+						<option value="AC2">AC2-Alcohol Poss.
+						<option value="AC3">AC3-Alcohol Sale/Distr.
+						<option value="D10">D10-Other Drug Use/Overdose
+						<option value="D11">D11-Other Drug Poss./Paraphernalia Poss.
+						<option value="D12">D12-Other Drug Sale/Distr.
+						<option value="D15">D15-Inhalant Possession
+						<option value="D16">D16-Inhalant Use
+						<option value="D17">D17-Drug Look-a-like Poss.
+						<option value="D19">D19-Anabolic Steroid Sale/Distr.
+						<option value="D20">D20-Anabolic Steroid Use/Poss.
+						<option value="D4G">D4G-OTC Med Use
+						<option value="D5G">D5G-OTC Med Poss.
+						<option value="D6G">D6G-OTC Med Sale/Distr.
+						<option value="DG1">DG1-Sched I&II Drug Use
+						<option value="DG2">DG2-Sched I&II Drug Poss.
+						<option value="DG3">DG3-Sched I&II Drug Sale/Distr.
+						<option value="DG5">DG5-Synth Marijuana Poss.
+						<option value="DG6">DG6-Synth Marijuana Sale/Distr.
+						<option value="DG7">DG7-Marijuana Use
+						<option value="DG8">DG8-Marijuana Poss.
+						<option value="DG9">DG9-Marijuana Sale/Distr.
+						<option value="DR3">DR3-Rx Theft/Attempted Theft
+						<option value="T4B">T4B-Poss. of tobacco pariphernalia
+						<option value="TC1">TC1-Tobacco use
+						<option value="TC2">TC2-Tobacco poss.
+						<option value="TC3">TC3-Tobacco sale/distr.
+
+						<option value="">
+						<option value="">-- Arson, Vandalism, Tresspassing --
+						<option value="AS1">AS1-Arson Actual
+						<option value="AS2">AS2-Arson Attempted
+						<option value="AS3">AS3-Arson-Set off cherry bomb, stink bomb, firecracker, etc.
+						<option value="TR1">TR1-Tresspassing
+						<option value="VN1">VN1-Vandalism of school property
+						<option value="VN2">VN2-Vandalism of private property
+						<option value="VN3">VN3-Graffiti
+
+						<option value="">				
+						<option value="">-- Assault --
+						<option value="BA1">BA1-Assault/Battery staff w/weapon.
+						<option value="BA2">BA2-Assault/Battery staff w/o weapon.
+						<option value="BA3">BA3-Assault/Battery stud w/weapon.
+						<option value="BA4">BA4-Assault/Battery stud w/o weapon.
+						<option value="BA5">BA5-Assault/Battery-Malicious Wounding (see guide!)
+						
+						<option value="">
+						<option value="">-- Attendance, Insubordination, etc --
+						<option value="A1T">A1T-Attendance
+						<option value="D1C">D1C-Disrespect
+						<option value="D2C">D2C-Defiance
+						<option value="D3C">D3C-Disruptive
+						<option value="D4C">D4C-Poss. of Obscene literature
+						<option value="D5C">D5C-Classroom Disruption
+						<option value="D6C">D6C-Obscene Language/Guesture
+						<option value="D8C">D8C-Minor Insubordination
+
+						<option value="">
+						<option value="">-- Bullying, personal threats, etc --
+						<option value="BU1">BU1-Bullying
+						<option value="BU2">BU2-Cyber Bullying
+						<option value="HR1">HR1-Harrassment (nonsexual)
+						<option value="TI1">TI1-Threat against staff
+						<option value="TI2">TI2-Threat against student
+						<option value="ST1">ST1-Stalking
+						
+						<option value="">
+						<option value="">-- Fighting, Hazing --
+						<option value="F1T">F1T-Minor Physical Altercation
+						<option value="FA2">FA2-Fighting w/No Inj or Minor Inj
+						<option value="H1Z">H1Z-Hazing
+						
+						<option value="">
+						<option value="">-- Homocide --
+						<option value="HO1">HO1-Against Staff w/firearm
+						<option value="HO2">HO2-Against Stud w/firearm
+						<option value="HO3">HO3-Against Staff w/ other weapon
+						<option value="HO4">HO4-Against Stud w/ other weapon
+
+						<option value="">
+						<option value="">--Other Offenses--
+						<option value="G1B">G1B-Gambling
+						<option value="GA1">GA1-Gang Activity
+						<option value="KI1">KI1-Kidnapping
+						<option value="S1V">S1V-Inapp. Personal Property (i.e., dress code)
+						<option value="S2V">S2V-Lying, Cheating, Plagiarism, etc.
+						<option value="S3V">S3V-Other school code violation
+						
+						<option value="">
+						<option value="">-- School Threats --
+						<option value="BO1">BO1-Bomb Threat (Real or False)
+						<option value="BO2">BO2-Chem/Bio Threat (Real or False)
+						<option value="BO3">BO3-Terror Threat (real or false)
+						<option value="BO4">BO4-False Firealarm
+						<option value="RG1">RG1-Inciting a riot
+						<option value="RG2">RG2-Attempting to incite a riot
+
+						<option value="">
+						<option value="">-- Sexual Assault, Harrassment, etc --
+						<option value="SB1">SB1-Sexual Battery against Staff
+						<option value="SB2">SB2-Sexual Battery against stud
+						<option value="SX0">SX0-Sexual Harrassment
+						<option value="SX1">SX1-Offensive Touching against Staff
+						<option value="SX2">SX2-Offensive Touching against Stud
+						<option value="SX3">SX3-Sexual Assault against Staff
+						<option value="SX4">SX4-Sexual Assault against Stud
+						<option value="SX5">SX5-Atmpt. Sex Assault against Staff
+						<option value="SX6">SX6-Atmpt. Sex Assualt against stud
+						<option value="SX7">SX7-Sexual offense, not forcible
+						<option value="SX8">SX8-Aggravated Sexual Battery
+					
+						<option value="">	
+						<option value="">-- Technology Violations --
+						<option value="C1M">C1M-Tech, Beeper Violation
+						<option value="C2M">C2M-Tech, Cell Phone Violation
+						<option value="C3M">C3M-Tech, Other device
+						<option value="T1C">T1C-Unauth. use of Technology
+						<option value="T2C">T2C-Damage to Comp hw, sw, etc.
+						<option value="T3C">T3C-Accept. Use Violation
+						<option value="T4C">T4C-WWW policy violation
+
+						<option value="">
+						<option value="">-- Theft, Extorsion, etc --
+						<option value="BK1">BK1-Burglary: Actual
+						<option value="BK2">BK2-Burglary: Attempted				
+						<option value="ET1">ET1-Extortion
+						<option value="ET2">ET2-Attempted Extortion				
+						<option value="RB1">RB1-Robbery Actual
+						<option value="RB2">RB2-Attempted Robbery
+						<option value="TF1">TF1-Theft of School Property
+						<option value="TF2">TF2-Theft of staff property
+						<option value="TF3">TF3-Theft of student property
+						<option value="TF4">TF4-Poss. of stolen property
+						<option value="TF6">TF6-Motor vehicle theft.
+
+						<option value="">
+						<option value="">-- Weapons Related --
+						<option value="W1P">W1P-Poss. of ammunition
+						<option value="W2P">W2P-Poss. of a chemical weapon.
+						<option value="W3P">W3P-Poss. of a look-a-like (toy gun)
+						<option value="W8P">W8P-Poss. of knife &lt; 3", razor, etc.
+						<option value="W9P">W9P-Poss. of fireworks, stink bomb, etc.
+						<option value="WP0">WP0-Poss. of air gun (airsoft, paintball, BB, etc.)
+						<option value="WP1">WP1-Poss. of handgun/pistol
+						<option value="WP2">WP2-Poss. of Rifle/Shotgun
+						<option value="WP4">WP4-Poss. of other projectile wep (see manual!)
+						<option value="WP5">WP5-Poss of knife &gt; 3"
+						<option value="WP6">WP6-Poss. of bomb/explosive
+						<option value="WP7">WP7-Use of bomb/explosive
+						<option value="WP8">WP8-Other firearm (See manual!)
+						<option value="WP9">WP9-Other weapon (billy club, bat, etc.)
+						<option value="WS1">WS1-Poss. of a stun gun
+						<option value="WT1">WT1-Poss. of a taser
+					</select><br /><div style="visibility:hidden; color: #FF0000; font-weight: bold" id="Log_VA_offense_code2_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_offense_code3"><b>Tertiary Offense Code</b></td>
+					<td><select name="[Log]VA_offense_code3" id="Log_VA_offense_code3">
+						<option value="">Select...</option>
+						<option value="">
+						<option value="">-- Alcohol, Tobacco, Drugs --
+						<option value="AC1">AC1-Alcohol Use
+						<option value="AC2">AC2-Alcohol Poss.
+						<option value="AC3">AC3-Alcohol Sale/Distr.
+						<option value="D10">D10-Other Drug Use/Overdose
+						<option value="D11">D11-Other Drug Poss./Paraphernalia Poss.
+						<option value="D12">D12-Other Drug Sale/Distr.
+						<option value="D15">D15-Inhalant Possession
+						<option value="D16">D16-Inhalant Use
+						<option value="D17">D17-Drug Look-a-like Poss.
+						<option value="D19">D19-Anabolic Steroid Sale/Distr.
+						<option value="D20">D20-Anabolic Steroid Use/Poss.
+						<option value="D4G">D4G-OTC Med Use
+						<option value="D5G">D5G-OTC Med Poss.
+						<option value="D6G">D6G-OTC Med Sale/Distr.
+						<option value="DG1">DG1-Sched I&II Drug Use
+						<option value="DG2">DG2-Sched I&II Drug Poss.
+						<option value="DG3">DG3-Sched I&II Drug Sale/Distr.
+						<option value="DG5">DG5-Synth Marijuana Poss.
+						<option value="DG6">DG6-Synth Marijuana Sale/Distr.
+						<option value="DG7">DG7-Marijuana Use
+						<option value="DG8">DG8-Marijuana Poss.
+						<option value="DG9">DG9-Marijuana Sale/Distr.
+						<option value="DR3">DR3-Rx Theft/Attempted Theft
+						<option value="T4B">T4B-Poss. of tobacco pariphernalia
+						<option value="TC1">TC1-Tobacco use
+						<option value="TC2">TC2-Tobacco poss.
+						<option value="TC3">TC3-Tobacco sale/distr.
+
+						<option value="">
+						<option value="">-- Arson, Vandalism, Tresspassing --
+						<option value="AS1">AS1-Arson Actual
+						<option value="AS2">AS2-Arson Attempted
+						<option value="AS3">AS3-Arson-Set off cherry bomb, stink bomb, firecracker, etc.
+						<option value="TR1">TR1-Tresspassing
+						<option value="VN1">VN1-Vandalism of school property
+						<option value="VN2">VN2-Vandalism of private property
+						<option value="VN3">VN3-Graffiti
+
+						<option value="">				
+						<option value="">-- Assault --
+						<option value="BA1">BA1-Assault/Battery staff w/weapon.
+						<option value="BA2">BA2-Assault/Battery staff w/o weapon.
+						<option value="BA3">BA3-Assault/Battery stud w/weapon.
+						<option value="BA4">BA4-Assault/Battery stud w/o weapon.
+						<option value="BA5">BA5-Assault/Battery-Malicious Wounding (see guide!)
+						
+						<option value="">
+						<option value="">-- Attendance, Insubordination, etc --
+						<option value="A1T">A1T-Attendance
+						<option value="D1C">D1C-Disrespect
+						<option value="D2C">D2C-Defiance
+						<option value="D3C">D3C-Disruptive
+						<option value="D4C">D4C-Poss. of Obscene literature
+						<option value="D5C">D5C-Classroom Disruption
+						<option value="D6C">D6C-Obscene Language/Guesture
+						<option value="D8C">D8C-Minor Insubordination
+
+						<option value="">
+						<option value="">-- Bullying, personal threats, etc --
+						<option value="BU1">BU1-Bullying
+						<option value="BU2">BU2-Cyber Bullying
+						<option value="HR1">HR1-Harrassment (nonsexual)
+						<option value="TI1">TI1-Threat against staff
+						<option value="TI2">TI2-Threat against student
+						<option value="ST1">ST1-Stalking
+						
+						<option value="">
+						<option value="">-- Fighting, Hazing --
+						<option value="F1T">F1T-Minor Physical Altercation
+						<option value="FA2">FA2-Fighting w/No Inj or Minor Inj
+						<option value="H1Z">H1Z-Hazing
+						
+						<option value="">
+						<option value="">-- Homocide --
+						<option value="HO1">HO1-Against Staff w/firearm
+						<option value="HO2">HO2-Against Stud w/firearm
+						<option value="HO3">HO3-Against Staff w/ other weapon
+						<option value="HO4">HO4-Against Stud w/ other weapon
+
+						<option value="">
+						<option value="">--Other Offenses--
+						<option value="G1B">G1B-Gambling
+						<option value="GA1">GA1-Gang Activity
+						<option value="KI1">KI1-Kidnapping
+						<option value="S1V">S1V-Inapp. Personal Property (i.e., dress code)
+						<option value="S2V">S2V-Lying, Cheating, Plagiarism, etc.
+						<option value="S3V">S3V-Other school code violation
+						
+						<option value="">
+						<option value="">-- School Threats --
+						<option value="BO1">BO1-Bomb Threat (Real or False)
+						<option value="BO2">BO2-Chem/Bio Threat (Real or False)
+						<option value="BO3">BO3-Terror Threat (real or false)
+						<option value="BO4">BO4-False Firealarm
+						<option value="RG1">RG1-Inciting a riot
+						<option value="RG2">RG2-Attempting to incite a riot
+
+						<option value="">
+						<option value="">-- Sexual Assault, Harrassment, etc --
+						<option value="SB1">SB1-Sexual Battery against Staff
+						<option value="SB2">SB2-Sexual Battery against stud
+						<option value="SX0">SX0-Sexual Harrassment
+						<option value="SX1">SX1-Offensive Touching against Staff
+						<option value="SX2">SX2-Offensive Touching against Stud
+						<option value="SX3">SX3-Sexual Assault against Staff
+						<option value="SX4">SX4-Sexual Assault against Stud
+						<option value="SX5">SX5-Atmpt. Sex Assault against Staff
+						<option value="SX6">SX6-Atmpt. Sex Assualt against stud
+						<option value="SX7">SX7-Sexual offense, not forcible
+						<option value="SX8">SX8-Aggravated Sexual Battery
+					
+						<option value="">	
+						<option value="">-- Technology Violations --
+						<option value="C1M">C1M-Tech, Beeper Violation
+						<option value="C2M">C2M-Tech, Cell Phone Violation
+						<option value="C3M">C3M-Tech, Other device
+						<option value="T1C">T1C-Unauth. use of Technology
+						<option value="T2C">T2C-Damage to Comp hw, sw, etc.
+						<option value="T3C">T3C-Accept. Use Violation
+						<option value="T4C">T4C-WWW policy violation
+
+						<option value="">
+						<option value="">-- Theft, Extorsion, etc --
+						<option value="BK1">BK1-Burglary: Actual
+						<option value="BK2">BK2-Burglary: Attempted				
+						<option value="ET1">ET1-Extortion
+						<option value="ET2">ET2-Attempted Extortion				
+						<option value="RB1">RB1-Robbery Actual
+						<option value="RB2">RB2-Attempted Robbery
+						<option value="TF1">TF1-Theft of School Property
+						<option value="TF2">TF2-Theft of staff property
+						<option value="TF3">TF3-Theft of student property
+						<option value="TF4">TF4-Poss. of stolen property
+						<option value="TF6">TF6-Motor vehicle theft.
+
+						<option value="">
+						<option value="">-- Weapons Related --
+						<option value="W1P">W1P-Poss. of ammunition
+						<option value="W2P">W2P-Poss. of a chemical weapon.
+						<option value="W3P">W3P-Poss. of a look-a-like (toy gun)
+						<option value="W8P">W8P-Poss. of knife &lt; 3", razor, etc.
+						<option value="W9P">W9P-Poss. of fireworks, stink bomb, etc.
+						<option value="WP0">WP0-Poss. of air gun (airsoft, paintball, BB, etc.)
+						<option value="WP1">WP1-Poss. of handgun/pistol
+						<option value="WP2">WP2-Poss. of Rifle/Shotgun
+						<option value="WP4">WP4-Poss. of other projectile wep (see manual!)
+						<option value="WP5">WP5-Poss of knife &gt; 3"
+						<option value="WP6">WP6-Poss. of bomb/explosive
+						<option value="WP7">WP7-Use of bomb/explosive
+						<option value="WP8">WP8-Other firearm (See manual!)
+						<option value="WP9">WP9-Other weapon (billy club, bat, etc.)
+						<option value="WS1">WS1-Poss. of a stun gun
+						<option value="WT1">WT1-Poss. of a taser
+					</select><br /><div class="logError" id="Log_VA_offense_code3_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_firearms"><b># Firearms Confiscated</b></td>
+					<td><input type="text" name="[Log]VA_firearms" maxlength="5" size="5" value="0" id="Log_VA_firearms"><div class="logError" id="Log_VA_firearms_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_non_firearms"><b># Non-Firearms Confiscated</b></td>
+					<td><input type="text" name="[Log]VA_non_firearms" maxlength="5" size="5" value="0" id="Log_VA_non_firearms"><div class="logError" id="Log_VA_non_firearms_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_sanction"><b>Final Division/Sanction Code</b></td>
+					<td><select name="[Log]VA_sanction" id="Log_VA_sanction">
+						<option value=""></option>
+						<option value="01">In-School Suspension for Special Ed Students (01)</option>
+						<option value="02">Short-term suspension (out of school)(02)</option>
+						<option value="03">Long-term suspension (out of school)(03)</option>
+						<option value="04">Expulsion (04)</option>
+						<option value="05">Special education interim placement-LEA decision (05)</option>
+						<option value="06">Special education interim placement-hearing officer decision (06)</option>
+						<option value="07">Modified expulsion to suspension by LEA under ADFSCA and GFSA (07)</option>
+						<option value="99">None of the above (99)</option>
+					</select><div class="logError" id="Log_VA_sanction_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_days_suspended"><b># Days Suspended</b></td>
+					<td><input type="text" name="[Log]VA_days_suspended" maxlength="3" size="4" value="0" id="Log_VA_days_suspended"><div class="logError" id="Log_VA_days_suspended_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_victims"><b># Victims</b></td>
+					<td><input type="text" name="[Log]VA_victims" maxlength="2" size="4" value="0" id="Log_VA_victims"><div class="logError" id="Log_VA_victims_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_placement"><b>Alternative Placement</b></td>
+					<td><select name="[Log]VA_placement" id="Log_VA_placement">
+						<option value="">No</option>
+						<option value="1">Yes</option>
+					</select><div class="logError" id="Log_VA_placement_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_expulsion"><b>Permanent Expulsion</b></td>
+					<td><select name="[Log]VA_expulsion" id="Log_VA_expulsion">
+						<option value="">No</option>
+						<option value="1">Yes</option>
+					</select><div class="logError" id="Log_VA_expulsion_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_time_code"><b>Time Incident Took Place</b></td>
+					<td><select name="[Log]VA_time_code" id="Log_VA_time_code">
+						<option value=""></option>
+						<option value="00">Unknown  (Valid for 2003/2004 submittal only)(00)</option>
+						<option value="01">During the regular school day (01)</option>
+						<option value="02">School sponsored activity outside school hours (02)</option>
+						<option value="03">Non-school sponsored activity outside school hours (03)</option>
+						<option value="04">In transit on the way to or from school (04)</option>
+					</select><div class="logError" id="Log_VA_time_code_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_reported_law"><b>Reported To Law Enforcement</b></td>
+					<td><select name="[Log]VA_reported_law" id="Log_VA_reported_law">
+						<option value="" selected>No</option>
+						<option value="1">Yes</option>
+					</select><div class="logError" id="Log_VA_reported_law_err"></div></td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]VA_Permanent_Change_Placement"><b>SPED Students Only - IEP Permanent Change in Placement</b></td>
+					<td>
+						<select name="[Log]VA_Permanent_Change_Placement" id="Log_VA_permanent_change_placement">
+						<option value="">No</option>
+						<option value="1">Yes</option>
+						</select><div class="logError" id="Log_VA_permanent_change_placement_err"></div>
+					</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td></td><td></td></tr>
+				<tr class="headerRow">
+					<td colspan="2" class="bold">CRDC Fields</td>
+				</tr>
+				<tr class="~[evenoddrow;reset]"><td title="[Log]CRDC_Discipline"><b>SCH-0035/SCH-0036: Discipline of Students</b></td>
+							<td><select name="[Log]CRDC_Discipline" id="CRDC_Discipline">
+								<option value=""></option>
+								<option value="05">Expulsions with educational services</option>
+								<option value="06">Expulsions without educational services</option>
+								<option value="07">Expulsions under zero-tolerance policies</option>
+								<option value="09">School-related arrest</option>
+							</select></td>
+				</tr>
+				<tr class="~[evenoddrow] bold">
+					<td colspan="2">SCH-0037. Reported Allegations of Harassment or Bullying</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]CRDC_Harassment_sex"><b>This incident had an allegation of harassment or bullying on the basis of sex</b></td>
+					<td>
+						<select name="[Log]CRDC_Harassment_sex">
+						<option value=""></option>
+						<option value="N">No</option>
+						<option value="Y">Yes</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]CRDC_Harassment_race"><b>This incident had an allegation of harassment or bullying on the basis of race, color or national origin</b></td>
+					<td>
+						<select name="[Log]CRDC_Harassment_race">
+						<option value=""></option>
+						<option value="N">No</option>
+						<option value="Y">Yes</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]CRDC_Harassment_disability"><b>This incident had an allegation of harassment or bullying on the basis of disability</b></td>
+					<td>
+						<select name="[Log]CRDC_Harassment_disability">
+						<option value=""></option>
+						<option value="N">No</option>
+						<option value="Y">Yes</option>
+						</select>
+					</td>
+				</tr>
+				<!--<tr class="~[evenoddrow] bold">
+					<td colspan="2">SCH-0038. Students Reported to have been harassed or bullied (Victim)</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]CRDC_Harassed_sex"><b>This incident students harassed or bullied on the basis of sex</b></td>
+					<td>
+						<select name="[Log]CRDC_Harassed_sex">
+						<option value=""></option>
+						<option value="N">No</option>
+						<option value="Y">Yes</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]CRDC_Harassed_race"><b>This incident had students harassed or bullied on the basis of race, color or national origin</b></td>
+					<td>
+						<select name="[Log]CRDC_Harassed_race">
+						<option value=""></option>
+						<option value="N">No</option>
+						<option value="Y">Yes</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]CRDC_Harassed_disability"><b>This incident had students harassed or bullied on the basis of disability</b></td>
+					<td>
+						<select name="[Log]CRDC_Harassed_disability">
+						<option value=""></option>
+						<option value="N">No</option>
+						<option value="Y">Yes</option>
+						</select>
+					</td>
+				</tr>-->
+				<tr class="~[evenoddrow] bold">
+					<td colspan="2">SCH-0039. Students Disciplined for Harassment or Bullying</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]CRDC_Disciplined_sex"><b>This incident had students disciplined for engaging in harassment or bullying on the basis of sex</b></td>
+					<td>
+						<select name="[Log]CRDC_Disciplined_sex">
+						<option value=""></option>
+						<option value="N">No</option>
+						<option value="Y">Yes</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]CRDC_Disciplined_race"><b>This incident had students disciplined for engaging in harassment or bullying on the basis of race, color or national origin</b></td>
+					<td>
+						<select name="[Log]CRDC_Disciplined_race">
+						<option value=""></option>
+						<option value="N">No</option>
+						<option value="Y">Yes</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="~[evenoddrow]"><td title="[Log]CRDC_Disciplined_disability"><b>This incident had students disciplined for engaging in harassment or bullying on the basis of disability</b></td>
+					<td>
+						<select name="[Log]CRDC_Disciplined_disability">
+						<option value=""></option>
+						<option value="N">No</option>
+						<option value="Y">Yes</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+        <table style="width: 100%;" cellpadding="4" cellspacing="0">
+			<tr class="~[evenoddrow] bold">
+				<td colspan="2">SCH-0040/SCH-0041. Students Subjected to Restraint or Seclusion</td>
+			</tr>
+			<tr class="~[evenoddrow]"><td title="[Log]CRDC_Restraint_Mechanical" style="width:48%"><b>Student was subjected to mechanical restraint</b></td>
+				<td>
+					<select name="[Log]CRDC_Restraint_Mechanical">
+					<option value=""></option>
+					<option value="N">No</option>
+					<option value="Y">Yes</option>
+					</select>
+				</td>
+			</tr>
+			<tr class="~[evenoddrow]"><td title="[Log]CRDC_Restraint_Physical" style="width:48%"><b>Student was subjected to physical restraint</b></td>
+				<td>
+					<select name="[Log]CRDC_Restraint_Physical">
+					<option value=""></option>
+					<option value="N">No</option>
+					<option value="Y">Yes</option>
+					</select>
+				</td>
+			</tr>
+			<tr class="~[evenoddrow]"><td title="[Log]CRDC_Restraint_Seclusion" style="width:48%"><b>Student was subjected to seclusion</b></td>
+				<td>
+					<select name="[Log]CRDC_Restraint_Seclusion">
+					<option value=""></option>
+					<option value="N">No</option>
+					<option value="Y">Yes</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><div id="Log_VA_all_errors" class="logError"></div></td>
+			</tr>
+		</table>
+	</td>
+</tr>
+<script type="text/javascript" src="/admin/state/usa_va/VA_script.js"></script>
+<script type="text/javascript" src="/scripts/yui/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/scripts/yui/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/scripts/yui/event/event-min.js"></script>
+<script type="text/javascript" src="/scripts/yui/connection/connection-min.js"></script>
+<script type="text/javascript">showStatePage();</script>
+<script type="text/javascript">
+function generateIncidentId()
+{
+	//Check if incident id already exists
+	if (document.getElementById('inc_id').value != "")
+	{
+		var doCreate = confirm("An incident id already exists, are you sure you want to generate a new one?");
+		if (doCreate)
+		{
+			//Send request to generateIncidentId page, this will return results from the Java Job Runner
+			YAHOO.util.Connect.asyncRequest('POST','/admin/state/usa_va/generateIncidentID.html?ac=JavaJob&class=va.idgenerator.IncidentId',callback);
+		}
+	}
+	else
+	{
+		//Send request to generateIncidentId page, this will return results from the Java Job Runner
+		YAHOO.util.Connect.asyncRequest('POST','/admin/state/usa_va/generateIncidentID.html?ac=JavaJob&class=va.idgenerator.IncidentId',callback);
+	}
+}
+
+function validateIncidentId(ele)
+{
+	//Validate results from Java Job Runner
+	if (ele == "error")
+	{
+		alert("An error occured while trying to generate the Id, please contact support");
+	}
+	else
+	{
+		var idLenFromPref = '~(f.table_info;table=Prefs;fn=value;field=Value;fieldtype=TEXT;dothisfor=ALL;*Name=VA_IncidentID_Length)';
+		var idLenFromPrefLen = idLenFromPref.length;
+		if (parseInt(idLenFromPref) != (parseInt(idLenFromPref)-0) || idLenFromPref == "")
+		{
+			//not a valid number do not pad incident id with leading 0's
+			document.getElementById("inc_id").value = ele;
+		}
+		else
+		{
+			//valid number now trim off leading 0's from length value
+			var idLen = trimNumber(idLenFromPref,idLenFromPrefLen);
+			if (idLen < 1 || idLen > 10 || idLen <= ele.length)
+			{
+				//invalid length or length is less than current length of id or length already correct
+				document.getElementById("inc_id").value = ele;
+			}
+			else
+			{
+				//pad generated id with leading 0's
+				var zerosToPad = idLen - ele.length;
+				var temp = "";
+				for(var i=0; i < zerosToPad; i++)
+				{
+					temp = temp + "0";
+				}
+				ele = temp + "" + ele;
+				document.getElementById("inc_id").value = ele;
+			}
+		}
+	}
+}
+function trimNumber(n,len)
+{
+	while (n.substr(0,1) == '0' && n.length>1) { n = n.substr(1,(len-1)); len = len - 1; }
+	return n;
+}
+handleSuccess = function(o) {
+   if (o.responseText!==undefined) {
+		var response = o.responseText;
+		if (response.indexOf('class="error">') > 0) {
+			var valArr = response.split('class="error">');
+			var incidentNum = valArr[1].split('</td>');
+			validateIncidentId(incidentNum[0]);
+		} else {
+			var valArr = response.split('<b>');
+			var incidentNum = valArr[1].split('</b>');
+			validateIncidentId(incidentNum[0]);
+		}
+   }
+};
+handleFailure = function(o) {
+   alert(o.statusText);
+};
+callback = {
+   success:handleSuccess,
+   failure:handleFailure,
+   timeout:60000
+};
+	addEvent(document.getElementById('logtype'), 'change', showStatePage);
+</script>
+<script type="text/javascript">
+	
+	var codeReqs = {
+		inc_id_req: [
+			"AL1","AC1","AC2","AC3",
+			"BA1","BA2","BA3","BA4","BA5",
+			"BB1","BO1","BO2","BO3","BO4",
+			"BU1","BU2",
+			"D15","D16",
+			"DR1","DG1","DG2","DG7","DG8","D20",
+			"DR2","D17",
+			"DR3",
+			"DR4","DG3","DG9","D19","DG6",
+			"DR5","D10","D11","D12",
+			"FA2","HR1",
+			"HO1","HO2","HO3","HO4",
+			"KI1",
+			"RO1","RB1","RB2",
+			"ST1","SB1","SB2",
+			"SX0","SX1","SX2","SX3","SX4","SX5","SX6","SX7","SX8",
+			"TB1","TC1","TC2","TC3",
+			"TI1","TI2",
+			"W2P",
+			"WP0","WP1","WP2","WP4","WP5","WP6","WP7","WP8","WP9",
+			"WS1","WT1"
+		],
+		
+		firearms: ["WP1", "WP2", "WP4", "WP8"],
+		non_firearms: ["W3P", "W2P", "WP0", "WP5", "WP6", "WP7", "WP9", "WS1", "WT1", "W1P", "W8P", "W9P"],
+		sanction457: [
+			"DR1", "DG1", "DG2", "DG7", "DG8", "D20", "DG5",
+			"DR4", "DG3", "DG9", "D19", "DG6",
+			"WP1", "WP2", "WP4", "WP6", "WP7", "WP8"
+		],
+		sanctionSupsend: ["05","06","99"],
+		victims: [
+			"BA1", "BA2", "BA3", "BA4", "BA5", "BU1", "BU2", "EX1", "ET1", "ET2", "H1Z", "HR1", "HO1", "HO2", "HO3", "HO4", "KI1", "RO1", "RB1", "RB2",
+			"SB1", "SB2", "ST1", "SX0", "SX1", "SX2", "SX3", "SX4", "SX5", "SX6", "SX7", "SX8", "TF1", "TF2", "TF3", "TF4", "TF6", "TH1", "TH2", "TI1", "TI2"
+		],
+		reported_law: [
+			"AL1", "AC1", "AC2", "AC3", 
+			"BA1", "BA2", "BA3", "BA4", "BA5", 
+			"BB1", "BO1", "BO2", "BO3", "BO4", 
+			"BU2", 
+			"DR1", "DG1", "DG2", "DG7", "DG8", "D20", "DG5", 
+			"DR2", "D17",
+			"DR3", 
+			"DR4", "DG3", "DG9", "D19", "DG6",
+			"DR5", "D10", "D11", "D12",
+			"HO1", "HO2", "HO3", "HO4", 
+			"ST1",
+			"SB1", 
+			"SB2",
+			"SX3", "SX4", "SX5", "SX6", "SX7", "SX8", 
+			"TI1", 
+			"WP0", "WP1", "WP2", "WP4", "WP5", "WP6", "WP7", "WP8", "WP9"
+		],
+		
+		manual_inc_id: [ "FA2" ]
+	};
+
+function manual_inc_id_check() {
+
+	var inc_id = $j('#inc_id').val();
+	var primary_code = $j('#Log_VA_primary_code').val();
+	var offense_code2 = $j('#Log_VA_offense_code2').val();
+	var offense_code3 = $j('#Log_VA_offense_code3').val();
+	var firearms = $j('#Log_VA_firearms').val();
+	var non_firearms = $j('#Log_VA_non_firearms').val();
+	var sanction = $j('#Log_VA_sanction').val();
+	var days_suspended = $j('#Log_VA_days_suspended').val();
+	var victims = $j('#Log_VA_victims').val();
+	var placement = $j('#Log_VA_placement').val();
+	var expulsion = $j('#Log_VA_expulsion').val();
+	var time_code = $j('#Log_VA_time_code').val();
+	var reported_law = $j('#Log_VA_reported_law').val();
+	var permanent_change_placement = $j('#Log_VA_permanent_change_placement').val();
+	var multi_offender = $j('#Log_VA_multi_offender').is(':checked');
+	var errorCount = 0;
+		
+	if (multi_offender || $j.inArray(primary_code, codeReqs.manual_inc_id) > -1 || $j.inArray(offense_code2, codeReqs.manual_inc_id) > -1 || $j.inArray(offense_code3, codeReqs.manual_inc_id) > -1) {
+		$j('#inc_id').attr('readonly', false);
+		if (primary_code == "FA2" || offense_code2 == "FA2" || offense_code3 == "FA2") {
+			alert('FA2 code requires at least 2 log entries with the same incident number, offense code, and incident date!');
+		}
+	} else {
+		$j('#inc_id').attr('readonly', true);
+	}
+}
+
+$j('#Log_VA_multi_offender').change(function() { 
+	manual_inc_id_check();
+});
+$j('#Log_VA_primary_code').change(function() { 
+	manual_inc_id_check();
+});
+$j('#Log_VA_offense_code2').change(function() { 
+	manual_inc_id_check();
+});
+$j('#Log_VA_offense_code3').change(function() { 
+	manual_inc_id_check();
+});
+
+$j(document).ready(function() {
+	manual_inc_id_check();
+});
+
+$j('form').submit(function(event) {
+	var errorCount = 0;
+	var logType = $j('#logtype option:selected').val();
+	
+	if (logType  == -100000) {
+	
+	submitOnce_shouldShow = 0;
+	
+	var inc_id = $j('#inc_id').val();
+	var primary_code = $j('#Log_VA_primary_code').val();
+	var offense_code2 = $j('#Log_VA_offense_code2').val();
+	var offense_code3 = $j('#Log_VA_offense_code3').val();
+	var firearms = $j('#Log_VA_firearms').val();
+	var non_firearms = $j('#Log_VA_non_firearms').val();
+	var sanction = $j('#Log_VA_sanction').val();
+	var days_suspended = $j('#Log_VA_days_suspended').val();
+	var victims = $j('#Log_VA_victims').val();
+	var placement = $j('#Log_VA_placement').val();
+	var expulsion = $j('#Log_VA_expulsion').val();
+	var time_code = $j('#Log_VA_time_code').val();
+	var reported_law = $j('#Log_VA_reported_law').val();
+	var permanent_change_placement = $j('#Log_VA_permanent_change_placement').val();
+	var multi_offender = $j('#Log_VA_multi_offender').val();
+
+	
+	var formErrors = {
+		inc_id: [],
+		primary_code: [],
+		offense_code2: [],
+		offense_code3: [],
+		firearms: [],
+		non_firearms: [],
+		sanction: [],
+		days_suspended: [],
+		victims: [],
+		placement: [],
+		expulsion: [],
+		time_code: [],
+		reported_law: [],
+		permanent_change_placement: []
+	};
+	
+	if (!inc_id && primary_code) {
+		if ($j.inArray(primary_code, codeReqs.inc_id_req) > -1) {
+			formErrors.inc_id = " Incident Number is Required for the chosen offense code.";
+		}
+	}
+	
+	if (!inc_id && sanction != 99) {
+		if (sanction) {
+			formErrors.inc_id = formErrors.inc_id + " Incident Number is required for the chosen sanction code.";
+		}
+	}
+	
+	if (inc_id) {
+		
+		if (!primary_code) {
+			formErrors.primary_code = "A primary offense code is requried.";
+		}
+		
+		if (offense_code3) {
+			if (!offense_code2) {
+				formErrors.offense_code3 = "There must be a secondary code when a tertiary code is entered.";
+			}
+		}
+		
+		if (primary_code == offense_code2 || primary_code == offense_code3 || offense_code2 == offense_code3) {
+			if (offense_code2 != "" && offense_code3 != "") {
+				formErrors.offense_code3 = formErrors.offense_code3 + " Offense codes cannot be duplicated.";
+			}
+		}
+		
+		if ($j.inArray(primary_code, codeReqs.firearms) > -1 || $j.inArray(offense_code2, codeReqs.firearms) > -1 || $j.inArray(offense_code3, codeReqs.firearms) > -1) {
+			if (firearms < 1) {
+				formErrors.firearms = "There must be a count of confiscated firearms.";
+			}
+		}
+		
+		if ($j.inArray(primary_code, codeReqs.non_firearms) > -1 || $j.inArray(offense_code2, codeReqs.non_firearms) > -1 || $j.inArray(offense_code3, codeReqs.non_firearms) > -1) {
+			if (non_firearms < 1) {
+				formErrors.non_firearms = "There must be a count of confiscated non-firearms.";
+			}
+		}
+		
+		if (!sanction) {
+			formErrors.sanction = "There must be a sanction code.";
+		}
+		
+		if ($j.inArray(primary_code, codeReqs.sanction457) > -1 && $j.inArray(offense_code2, codeReqs.sanction457) > -1 && $j.inArray(offense_code3, codeReqs.sanction457) > -1) {
+			formErrors.sanction = formErrors.sanction +  " A chosen offense code requires a sanction code of 4, 5, or 7.";
+		}
+		
+		if (sanction == "02"  && days_suspended > 10) {
+			formErrors.days_suspended = "Days suspended must be between 1 and 10 for a short-term suspension.";
+		}
+		
+		if (sanction == "02" && days_suspended < 1) {
+			formErrors.days_suspended = "Days suspended must be greater than zero for a short-term suspension.";
+		}
+		
+		if (sanction == "03") {
+			if (days_suspended > 364 || days_suspended < 11) {
+				formErrors.days_suspended = formErrors.days_suspended + " Days suspended must be between 11 and 364 for a long-term suspension.";
+			}
+		}
+		
+		if (sanction == "04" && days_suspended != 365) {
+			formErrors.days_suspended = formErrors.days_suspended + " Days suspended must be 365 for an expulsion.";
+		}
+		
+		if (sanction == "01" && days_suspended < 1) {
+			formErrors.days_suspended = formErrors.days_suspended + " Days suspended must be greater than zero for ISS for SpEd.";
+		}
+		
+		if ($j.inArray(sanction, codeReqs.sanctionSuspend) > -1 && days_suspended > 0) {
+			formErrors.days_suspended = formErrors.days_suspended + " Days suspended must be zero with the chosen sanction code.";
+		}
+		
+		if ($j.inArray(primary_code, codeReqs.victims) > -1 || $j.inArray(offense_code2, codeReqs.victims) > -1 || $j.inArray(offense_code3, codeReqs.victims) > -1) {
+			
+			if (victims < 1) {
+				formErrors.victims = "Victims cannot be zero for a chosen offense code.";
+			}
+		}
+		
+		if (victims > 1) {
+			if ($j.inArray(primary_code, codeReqs.victims) == -1 && $j.inArray(offense_code2, codeReqs.victims) == -1 && $j.inArray(offense_code3, codeReqs.victims) == 1) {
+				formErrors.victims = formErrors.victims + " The victim count must be zero for the chosen offense codes.";
+			}
+		}
+		
+		if (!time_code) {
+			formErrors.time_code = "There must be a time code.";
+		}
+		
+		if ($j.inArray(primary_code, codeReqs.reported_law) > -1 || $j.inArray(offense_code2, codeReqs.reported_law) > -1 || $j.inArray(offense_code3, codeReqs.reported_law) > -1) {
+			if (!reported_law) {
+				formErrors.reported_law = "This incident must be reported to law enforcement.";
+			}
+		}
+		
+		if ($j.inArray(primary_code, codeReqs.reported_law) == -1 && $j.inArray(offense_code2, codeReqs.reported_law) == -1 && $j.inArray(offense_code3, codeReqs.reported_law) == -1) {
+			if (reported_law) {
+				formErrors.reported_law = "This incident does not need to be reported to law enforcement.";
+			}
+		}
+	}
+	
+	if (formErrors.inc_id != "") {
+		$j('#inc_id_err').css('visibility', 'visible');
+		$j('#inc_id_err').html(formErrors.inc_id);
+		errorCount++;
+	} else {
+		$j('#inc_id_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.primary_code != "") {
+		$j('#Log_VA_primary_code_err').css('visibility', 'visible');
+		$j('#Log_VA_primary_code_err').html(formErrors.primary_code);
+		errorCount++;
+	} else {
+		$j('#Log_VA_primary_code_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.offense_code2 != "") {
+		$j('#Log_VA_offense_code2_err').css('visibility', 'visible');
+		$j('#Log_VA_offense_code2_err').html(formErrors.offense_code2);
+		errorCount++;
+	} else {
+		$j('#Log_VA_offense_code2_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.offense_code3 != "") {
+		$j('#Log_VA_offense_code3_err').css('visibility', 'visible');
+		$j('#Log_VA_offense_code3_err').html(formErrors.offense_code3);
+		errorCount++;
+	} else {
+		$j('Log_VA_offense_code3_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.firearms != "") {
+		$j('#Log_VA_firearms_err').css('visibility', 'visible');
+		$j('#Log_VA_firearms_err').html(formErrors.firearms);
+		errorCount++;
+	} else {
+		$j('#Log_VA_firearms_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.non_firearms != "") { 
+		$j('#Log_VA_non_firearms_err').css('visibility', 'visible');
+		$j('#Log_VA_non_firearms_err').html(formErrors.non_firearms);
+		errorCount++;
+	} else {
+		$j('#Log_VA_non_firearms_err').html(formErrors.non_firearms);
+	}
+	
+	if (formErrors.sanction != "") { 
+		$j('#Log_VA_sanction_err').css('visibility', 'visible');
+		$j('#Log_VA_sanction_err').html(formErrors.sanction);
+		errorCount++;
+	} else {
+		$j('#Log_VA_sanction_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.days_suspended != "") { 
+		$j('#Log_VA_days_suspended_err').css('visibility', 'visible');
+		$j('#Log_VA_days_suspended_err').html(formErrors.days_suspended);
+		errorCount++;
+	} else {
+		$j('#Log_VA_days_suspended_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.victims != "") { 
+		$j('#Log_VA_victims_err').css('visibility', 'visible');
+		$j('#Log_VA_victims_err').html(formErrors.victims);
+		errorCount++;
+	} else {
+		$j('#Log_VA_victims_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.placement != "") { 
+		$j('#Log_VA_placement_err').css('visibility', 'visible');
+		$j('#Log_VA_placement_err').html(formErrors.placement);
+		errorCount++;
+	} else {
+		$j('#Log_VA_placement_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.expulsion != "") { 
+		$j('#Log_VA_expulsion_err').css('visibility', 'visible');
+		$j('#Log_VA_expulsion_err').html(formErrors.expulsion);
+		errorCount++;
+	} else {
+		$j('#Log_VA_expulsion_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.time_code != "") { 
+		$j('#Log_VA_time_code_err').css('visibility', 'visible');
+		$j('#Log_VA_time_code_err').html(formErrors.time_code);
+		errorCount++;
+	} else {
+		$j('#Log_VA_time_code_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.reported_law != "") { 
+		$j('#Log_VA_reported_law_err').css('visibility', 'visible');
+		$j('#Log_VA_reported_law_err').html(formErrors.reported_law);
+		errorCount++;
+	} else {
+		$j('#Log_VA_reported_law_err').css('visibility', 'hidden');
+	}
+	
+	if (formErrors.permanent_change_placement != "") { 
+		$j('#Log_VA_permanent_change_placement_err').css('visibility', 'visible');
+		$j('#Log_VA_permanent_change_placement_err').html(formErrors.permanent_change_placement);
+		errorCount++;
+	} else {
+		$j('#Log_VA_permanent_change_placement_err').css('visibility', 'hidden');
+	}
+	
+	if (errorCount > 0) {
+		$j('#Log_VA_all_errors').html('Errors were found in this log entry. Please resolve them and resubmit the form.');
+		$j('#Log_VA_all_errors').css('visibility', 'visible');
+		return false;
+	} else {
+		loadingDialog();
+		return true;
+	}
+	
+	}
+});
+</script>
+<style type="text/css">
+	label.error { margin: 5px; }
+	input.error { border: 2px solid tomato; }
+	select.error { border: 2px solid tomato; }
+	input, select {
+		color:#333333;
+		font-family:Geneva,Verdana,Arial,Helvetica;
+	font-size: 1.3em !important;}
+</style>
+<style type="text/css">
+	.logError {
+		color: #FF0000;
+		font-weight: bold;
+		visibility: hidden;
+	}
+</style>
+
