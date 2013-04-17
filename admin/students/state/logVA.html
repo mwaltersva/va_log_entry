@@ -851,7 +851,7 @@ callback = {
 			"DR4", "DG3", "DG9", "D19", "DG6",
 			"WP1", "WP2", "WP4", "WP6", "WP7", "WP8"
 		],
-		sanctionSupsend: ["05","06","99"],
+		sanctionSupsend: ["05","06","08","99"],
 		victims: [
 			"BA1", "BA2", "BA3", "BA4", "BA5", "BU1", "BU2", "EX1", "ET1", "ET2", "H1Z", "HR1", "HO1", "HO2", "HO3", "HO4", "KI1", "RO1", "RB1", "RB2",
 			"SB1", "SB2", "ST1", "SX0", "SX1", "SX2", "SX3", "SX4", "SX5", "SX6", "SX7", "SX8", "TF1", "TF2", "TF3", "TF4", "TF6", "TH1", "TH2", "TI1", "TI2"
@@ -991,7 +991,7 @@ $j('form').submit(function(event) {
 		}
 		
 		if (primary_code == offense_code2 || primary_code == offense_code3 || offense_code2 == offense_code3) {
-			if (offense_code2 != "" && offense_code3 != "") {
+			if (offense_code2 != "" || offense_code3 != "") {
 				formErrors.offense_code3 = formErrors.offense_code3 + " Offense codes cannot be duplicated.";
 			}
 		}
@@ -1014,6 +1014,10 @@ $j('form').submit(function(event) {
 		
 		if ($j.inArray(primary_code, codeReqs.sanction457) > -1 && $j.inArray(offense_code2, codeReqs.sanction457) > -1 && $j.inArray(offense_code3, codeReqs.sanction457) > -1) {
 			formErrors.sanction = formErrors.sanction +  " A chosen offense code requires a sanction code of 4, 5, or 7.";
+		}
+		
+		if (sanction == "01" && "~(va_primary_dis_code)" == "") {
+			formErrors.sanction = formErrors.sanction+ "The sanction code cannot be \"ISS for Special Education\" if the student does not have a Primary Disability code";
 		}
 		
 		if (sanction == "02"  && days_suspended > 10) {
@@ -1046,6 +1050,13 @@ $j('form').submit(function(event) {
 			
 			if (victims < 1) {
 				formErrors.victims = "Victims cannot be zero for a chosen offense code.";
+			}
+		}
+		
+		if ($j.inArray(primary_code, codeReqs.victims)  == -1 &&  $j.inArray(offense_code2, codeReqs.victims) == -1 && $j.inArray(offense_code3, codeReqs.victims) == -1) {
+			
+			if (victims > 0) {
+				formErrors.victims = "The victim count must be zero if none of the chosen offense codes requires a victim count";
 			}
 		}
 		
