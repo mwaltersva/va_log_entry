@@ -37,7 +37,7 @@
 					<td><input type="text" name="[Log]VA_incident_date" id="incident_date" maxlength="10" size="12" value=""></td>
 				</tr>
 				<tr class="~[evenoddrow]"><td title="[Log]VA_incident_code"><b>Incident Number</b></td>
-					<td><input type="text" name="[Log]VA_incident_code" id="inc_id" maxlength="10" size="12" value="" ></input>&nbsp;<input type="button" value="Generate Id" onClick="generateIncidentId();"><div id="inc_id_err" style="visibility: hidden" class="logError"></div></td>
+					<td><input type="text" name="[Log]VA_incident_code" id="inc_id" maxlength="10" size="12" value="" >&nbsp;<input type="button" value="Generate Id" onClick="generateIncidentId();"><div id="inc_id_err" style="visibility: hidden" class="logError"></div></td>
 				</tr>
 				<tr><td>This incident involves more than one student.</td><td><input type="checkbox" id="Log_VA_multi_offender" /></td></tr>
 				<tr class="~[evenoddrow]"><td title="[Log]VA_primary_code"><b>Primary Offense Code</b></td>
@@ -1016,7 +1016,7 @@ $j('form').submit(function(event) {
 			formErrors.sanction = formErrors.sanction +  " A chosen offense code requires a sanction code of 4, 5, or 7.";
 		}
 		
-		if (sanction == "01" && "~([01]va_primary_dis_code)" == "") {
+		if (sanction == "01" && "~([01]va_primary_dis_code)" === "") {
 			formErrors.sanction = formErrors.sanction+ "The sanction code cannot be \"ISS for Special Education\" if the student does not have a Primary Disability code";
 		}
 		
