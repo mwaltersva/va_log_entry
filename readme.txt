@@ -39,6 +39,9 @@ There must be a time code.
 Law enforcement must be "Yes" for specific offense codes.
 
 Changelog:
+----------------------13.09.20------------------------
+-Fixed: ISS for sped was not being allowed to be chosen. Fixed evaluation of va_primary_dis_code.
+
 ----------------------13.02.21------------------------
 -Fixed: Non-Firearms validation reading wrong input.
 
